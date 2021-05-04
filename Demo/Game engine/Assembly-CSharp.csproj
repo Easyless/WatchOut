@@ -53,22 +53,23 @@
     <UnityVersion>2020.2.6f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Move.cs" />
-    <Compile Include="Assets\ObstacleCoursePack\Scripts\FPSDisplay.cs" />
+    <Compile Include="Assets\ObstacleCoursePack\Scripts\Pendulum.cs" />
+    <Compile Include="Assets\ObstacleCoursePack\Controller\CharacterControls.cs" />
+    <Compile Include="Assets\ObstacleCoursePack\Scripts\WallMovable.cs" />
     <Compile Include="Assets\ObstacleCoursePack\Scripts\MovableObs.cs" />
-    <Compile Include="Assets\ObstacleCoursePack\Scripts\FallPlat.cs" />
     <Compile Include="Assets\ObstacleCoursePack\Controller\CameraManager.cs" />
     <Compile Include="Assets\ObstacleCoursePack\Scripts\Rotator.cs" />
-    <Compile Include="Assets\ObstacleCoursePack\Scripts\Bounce.cs" />
-    <Compile Include="Assets\ObstacleCoursePack\Controller\CharacterControls.cs" />
-    <Compile Include="Assets\ObstacleCoursePack\Scripts\Pendulum.cs" />
-    <Compile Include="Assets\ObstacleCoursePack\Scripts\SavePos.cs" />
-    <Compile Include="Assets\ObstacleCoursePack\Scripts\KillZone.cs" />
-    <Compile Include="Assets\ObstacleCoursePack\Scripts\WallMovable.cs" />
-    <Compile Include="Assets\Stylized Astronaut\Character\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\Move.cs" />
     <Compile Include="Assets\Stylized Astronaut\Character\Player.cs" />
+    <Compile Include="Assets\ObstacleCoursePack\Scripts\KillZone.cs" />
+    <Compile Include="Assets\Stylized Astronaut\Character\ThirdPersonCamera.cs" />
+    <Compile Include="Assets\ObstacleCoursePack\Scripts\FallPlat.cs" />
+    <Compile Include="Assets\ObstacleCoursePack\Scripts\Bounce.cs" />
+    <Compile Include="Assets\ObstacleCoursePack\Scripts\FPSDisplay.cs" />
+    <Compile Include="Assets\ObstacleCoursePack\Scripts\SavePos.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\AtomRocket\ReadMe.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
