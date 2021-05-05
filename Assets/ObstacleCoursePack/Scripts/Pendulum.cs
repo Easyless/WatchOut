@@ -8,6 +8,7 @@ public class Pendulum : MonoBehaviour
 	public float limit = 75f; //Limit in degrees of the movement
 	public bool randomStart = false; //If you want to modify the start position
 	private float random = 0;
+	public bool isVertical = false;
 
 	// Start is called before the first frame update
 	void Awake()
@@ -20,6 +21,13 @@ public class Pendulum : MonoBehaviour
     void Update()
     {
 		float angle = limit * Mathf.Sin(Time.time + random * speed);
-		transform.localRotation = Quaternion.Euler(0, 90, angle);
+		if (isVertical)
+		{
+			transform.rotation = Quaternion.Euler(0, 90, angle);
+		}
+        else
+        {
+			transform.rotation = Quaternion.Euler(0, 0, angle);
+		}
 	}
 }
