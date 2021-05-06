@@ -5,6 +5,7 @@ using UnityEngine;
 public class dropSphere : MonoBehaviour
 {
     public GameObject obj;
+    public float createTimer = 1.0f;
     private float timer = 0.0f;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class dropSphere : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 1.0f)
+        if (timer > createTimer)
         {
             Instantiate(obj, transform.position, Quaternion.identity);
             timer = 0;
