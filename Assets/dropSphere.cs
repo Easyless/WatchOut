@@ -5,7 +5,7 @@ using UnityEngine;
 public class dropSphere : MonoBehaviour
 {
     public GameObject obj;
-    public float createTimer = 1.0f;
+    public float createTimer = 1.0f;//떨어지는 장애물 전용 타이머
     private float timer = 0.0f;
     // Start is called before the first frame update
     void Start()
