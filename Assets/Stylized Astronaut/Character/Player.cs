@@ -3,62 +3,97 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-		private Animator anim;
-		private CharacterController controller;
-	Rigidbody rigid;
+	float hor; //수평
+	float ver; //수직
+    public float speed;//속도
+    public float jumpheigt=3;//속도
+    bool jdown;//점프
+    bool ddown;//회피
+    bool jumping;//점프중일때
+    bool dodging;//점프중일때
 
-		public float speed = 600.0f;
-		public float turnSpeed = 400.0f;
-		private Vector3 moveDirection = Vector3.zero;
-    private Vector3 moveDirection2 = Vector3.zero;
-    public float gravity = 20.0f;
+    Vector3 moveVec;
 
+    Rigidbody rigid;
 
-	
-		void Start () {
-			controller = GetComponent <CharacterController>();
-			anim = gameObject.GetComponentInChildren<Animator>();
-		rigid = GetComponent<Rigidbody>();
-		}
+    Animator anim; //애니메이션 변수
 
-		void Update (){
-        if (Input.GetKey("w"))//이동키
-        {
-            anim.SetInteger("AnimationPar", 1);//1번키 제자리->이동 애니메이션
-        
-        }
-        else
-        {
-            anim.SetInteger("AnimationPar", 0);//0번키 이동->제자리 애니메이션
-        }
-
-
-        if (controller.isGrounded)
-        {
-            moveDirection = transform.forward * Input.GetAxis("Vertical") * speed;
-            moveDirection2 = transform.forward * Input.GetAxis("Horizontal") * speed;
-        }
-
-        float turn = Input.GetAxis("Horizontal");
-        transform.Rotate(0, turn * turnSpeed * Time.deltaTime, 0);
-        controller.Move(moveDirection * Time.deltaTime);
-        moveDirection.y -= gravity * Time.deltaTime;
-
-        Jump();
-	}
-
-	void Jump()
+    void Awake()
     {
-        if (Input.GetKey("space"))//점프키
-        {
-            controller.Move(moveDirection2 * Time.deltaTime);
+        rigid = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
+    }
 
-            anim.SetInteger("AnimationPar", 2);//2번키 제자리->점프 애니메이션
-         
-        }
-        else
+    void Update()
+    {
+
+        GetInput();
+        Move();
+        Turn();
+        Jump();
+        Dodge();
+    }
+
+    void GetInput()
+    {
+
+        hor = Input.GetAxisRaw("Horizontal");
+        ver = Input.GetAxisRaw("Vertical");
+        jdown = Input.GetButtonDown("Jump");//스페이스바
+        ddown = Input.GetButtonDown("Fire1");//왼쪽 시프트
+    }
+
+    void Move()
+    {
+        moveVec = new Vector3(hor, 0, ver).normalized; //방향값 1로보정
+
+        transform.position += moveVec * speed * Time.deltaTime;
+
+        anim.SetBool("run", moveVec != Vector3.zero);//가만히있지 않을시 뛰는 애니메이션
+    }
+
+    void Turn()
+    {
+        transform.LookAt(transform.position + moveVec);//플레이어 회전
+    }
+
+    void Jump()
+    {
+        if(jdown && !jumping && !dodging)//무한점프방지
         {
-            anim.SetInteger("AnimationPar", 3);//3번키 점프 -> 제자리 애니메이션
+            rigid.AddForce(Vector3.up * jumpheigt, ForceMode.Impulse);
+            anim.SetBool("isjump",true);//가만히있지 않을시 뛰는 애니메이션
+            anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
+            jumping = true;
+        }
+        
+    }
+
+    void Dodge()//회피
+    {
+        if (ddown &&!dodging && !jumping)
+        {
+            speed *= 2;
+            anim.SetTrigger("dododge");//회피 애니메이션
+            dodging = true;
+
+            Invoke("DodgeOut",0.4f); //시간차두고 회피그만하기
+        }
+    }
+
+    void DodgeOut()
+    {
+        speed *= 0.5f;
+        dodging = false; 
+        anim.SetBool("isjump", false);
+    }
+
+    void OnCollisionEnter(Collision collision)//바닥에 닿았을시
+    {
+        if (collision.gameObject.tag == "ground")//ground태그값 바닥에 있을시 점프한번만
+        {
+            anim.SetBool("isjump", false);
+            jumping = false;
         }
     }
 }
