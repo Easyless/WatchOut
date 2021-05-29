@@ -30,16 +30,16 @@ public class ThirdPersonCamera : MonoBehaviour
      void Update()
     {
         currentX += Input.GetAxis("Mouse X");
-        // currentY += Input.GetAxis("Mouse Y");
+        currentY += Input.GetAxis("Mouse Y");
       
-        // currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
+        currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
     }
 
     private void LateUpdate()
     {
         Vector3 dir = new Vector3(xx,yy, -distance);
-        // Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
-        Quaternion rotation = Quaternion.Euler(0, currentX, 0);
+        Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+        
         camTransform.position = lookAt.position + rotation * dir;
         camTransform.LookAt(lookAt.position);
     }
