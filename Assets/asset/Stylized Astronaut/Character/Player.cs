@@ -111,8 +111,8 @@ public class Player : MonoBehaviour {
             firstobstaclepoint = GameObject.FindGameObjectWithTag("obstacle1");//미션포인트1 오라 받아오기
             Destroy(firstobstaclepoint);//삭제
 
-            GameObject.Find("Cyllinderpoint").GetComponent<dropSphere>().Makecyllinder();
-            
+            GameObject.Find("Cyllinderpoint").GetComponent<dropSphere>().Makecyllinderrepeat();//dropspher 내의 파이프생성 함수 가져오기
+         
         }
     }
 }
