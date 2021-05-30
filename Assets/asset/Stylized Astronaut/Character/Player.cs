@@ -12,6 +12,14 @@ public class Player : MonoBehaviour {
     bool jumping;//점프중일때
     bool dodging;//점프중일때
 
+
+    //게임도중 생성되는 장애물들의 생성을 도울 보이지않는 포인트
+
+    private GameObject firstobstaclepoint;//미션1지점 오라 삭제용
+
+    //----------------------------------------------------------------------
+
+ 
     Vector3 moveVec;
 
     Rigidbody rigid;
@@ -94,6 +102,17 @@ public class Player : MonoBehaviour {
         {
             anim.SetBool("isjump", false);
             jumping = false;
+        }
+
+        if (collision.gameObject.tag == "obstacle1")//장애물포인트1도달시 삭제 및 장애물발동
+        {
+
+
+            firstobstaclepoint = GameObject.FindGameObjectWithTag("obstacle1");//미션포인트1 오라 받아오기
+            Destroy(firstobstaclepoint);//삭제
+
+            GameObject.Find("Cyllinderpoint").GetComponent<dropSphere>().Makecyllinder();
+            
         }
     }
 }
