@@ -114,5 +114,16 @@ public class Player : MonoBehaviour {
             GameObject.Find("Cyllinderpoint").GetComponent<dropSphere>().Makecyllinderrepeat();//dropspher 내의 파이프생성 함수 가져오기
          
         }
+
+
+        if (collision.gameObject.tag == "rock")//바위와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
+        {
+
+            rigid.AddForce(Vector3.back * 4, ForceMode.VelocityChange);
+            anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
+            anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
+            jumping = true;
+        }
+
     }
 }

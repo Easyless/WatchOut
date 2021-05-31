@@ -7,6 +7,7 @@ TagManager:
   - ground
   - crushcheck
   - obstacle1
+  - rock
   layers:
   - Default
   - TransparentFX

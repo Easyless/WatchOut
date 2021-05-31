@@ -43,7 +43,7 @@ public class dropSphere : MonoBehaviour
 
     public void Makecyllinderrepeat()//파이프 생성 3초마다 반복
     {
-        InvokeRepeating("Makecyllinder", 1,3.5);
+        InvokeRepeating("Makecyllinder", 1,3);
       
     }
 

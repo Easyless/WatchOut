@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (11)
@@ -234,6 +238,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (4)
@@ -383,6 +391,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (9)
@@ -763,6 +775,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (1)
@@ -1282,6 +1298,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (13)
@@ -1465,6 +1485,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (10)
@@ -2067,7 +2091,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684042861}
   serializedVersion: 2
-  m_Mass: 40
+  m_Mass: 30
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2270,6 +2294,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (12)
@@ -2345,7 +2373,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736879229}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
@@ -2486,6 +2514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (5)
@@ -2837,6 +2869,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (8)
@@ -3858,6 +3894,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (14)
@@ -4205,7 +4245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114551384804589004, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: speed
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114551384804589004, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: jumpheigt
@@ -4255,6 +4295,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (6)
@@ -4925,9 +4969,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5003,6 +5055,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (7)
@@ -5322,9 +5378,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1298591483}
     m_Modifications:
+    - target: {fileID: 100000, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_Name
       value: rock02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 6c262484852eac84785d71207b841d95, type: 3}
+      propertyPath: m_TagString
+      value: rock
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 6c262484852eac84785d71207b841d95, type: 3}
       propertyPath: m_RootOrder
