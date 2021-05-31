@@ -16,10 +16,11 @@ public class Player : MonoBehaviour {
     //게임도중 생성되는 장애물들의 생성을 도울 보이지않는 포인트
 
     private GameObject firstobstaclepoint;//미션1지점 오라 삭제용
+    private GameObject secondobstaclepoint;//미션2지점 오라 삭제용
 
     //----------------------------------------------------------------------
 
- 
+
     Vector3 moveVec;
 
     Rigidbody rigid;
@@ -82,6 +83,7 @@ public class Player : MonoBehaviour {
         if (ddown &&!dodging && !jumping)
         {
             speed *= 2;
+         
             anim.SetTrigger("dododge");//회피 애니메이션
             dodging = true;
 
@@ -94,6 +96,7 @@ public class Player : MonoBehaviour {
         speed *= 0.5f;
         dodging = false; 
         anim.SetBool("isjump", false);
+      
     }
 
     void OnCollisionEnter(Collision collision)//바닥에 닿았을시
@@ -101,6 +104,8 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "ground")//ground태그값 바닥에 있을시 점프한번만
         {
             anim.SetBool("isjump", false);
+          
+        
             jumping = false;
         }
 
@@ -115,6 +120,17 @@ public class Player : MonoBehaviour {
          
         }
 
+        if (collision.gameObject.tag == "obstacle2")//장애물포인트2도달시 몬스터 움직이기시작
+        {
+            secondobstaclepoint = GameObject.FindGameObjectWithTag("obstacle2");//미션포인트1 오라 받아오기
+            Destroy(secondobstaclepoint);//삭제
+
+            GameObject.Find("Enemy2").GetComponent<enemy>().enabled = true;//몬스터 동작 시작
+           // GameObject.Find("Enemy").GetComponent<enemy>().enabled = true;
+        }
+
+
+
 
         if (collision.gameObject.tag == "rock")//바위와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
         {
@@ -123,6 +139,14 @@ public class Player : MonoBehaviour {
             anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
             anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
             jumping = true;
+        }
+
+
+
+        if (collision.gameObject.tag == "monster")//몬스터와 충돌시 위로 다시 돌아간다
+        {
+            transform.position = new Vector3(-3, 25, -30);
+           
         }
 
     }
