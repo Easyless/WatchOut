@@ -8,6 +8,8 @@ TagManager:
   - crushcheck
   - obstacle1
   - rock
+  - monster
+  - obstacle2
   layers:
   - Default
   - TransparentFX

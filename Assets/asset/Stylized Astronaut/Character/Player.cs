@@ -126,7 +126,7 @@ public class Player : MonoBehaviour {
             Destroy(secondobstaclepoint);//삭제
 
             GameObject.Find("Enemy2").GetComponent<enemy>().enabled = true;//몬스터 동작 시작
-           // GameObject.Find("Enemy").GetComponent<enemy>().enabled = true;
+           GameObject.Find("Enemy3").GetComponent<enemy>().enabled = true;
         }
 
 
@@ -145,7 +145,7 @@ public class Player : MonoBehaviour {
 
         if (collision.gameObject.tag == "monster")//몬스터와 충돌시 위로 다시 돌아간다
         {
-            transform.position = new Vector3(-3, 25, -30);
+            transform.position = new Vector3(3, 55, 30);
            
         }
 
