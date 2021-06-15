@@ -136,7 +136,7 @@ public class Player : MonoBehaviour {
             thirdobstaclepoint = GameObject.FindGameObjectWithTag("obstacle3");//미션포인트3 오라 받아오기
             Destroy(thirdobstaclepoint);//삭제
 
-            GameObject.Find("Cyllinderpoint").GetComponent<dropSphere>().Makerockrepeat();//dropspher 내의 파이프생성 함수 가져오기
+            GameObject.Find("rollingrock").GetComponent<dropSphere>().Makerockrepeat();//dropspher 내의 파이프생성 함수 가져오기
 
         }
 

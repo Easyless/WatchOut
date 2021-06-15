@@ -13,6 +13,8 @@ TagManager:
   - portal1
   - portal2
   - portal3
+  - obstacle3
+  - ocean
   layers:
   - Default
   - TransparentFX
