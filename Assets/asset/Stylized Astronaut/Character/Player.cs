@@ -145,9 +145,36 @@ public class Player : MonoBehaviour {
 
         if (collision.gameObject.tag == "monster")//몬스터와 충돌시 위로 다시 돌아간다
         {
-            transform.position = new Vector3(3, 55, 30);
+            transform.position = new Vector3(3, 55, 35);
            
         }
 
+        if (collision.gameObject.tag == "portal1")//파란포탈  = 정답
+        {
+            transform.position = new Vector3(3, 65, 71.5);
+
+        }
+
+
+        if (collision.gameObject.tag == "portal2")//초록포탈 = 초록돌 앞에서 재시가
+        {
+            transform.position = new Vector3(3, 35, -25);
+
+        }
+
+
+        if (collision.gameObject.tag == "portal3")//빨간포탈 = 빨간돌 앞에서 재시작
+        {
+            transform.position = new Vector3(-2, 35, -25);
+
+        }
+
+
+
+        if (collision.gameObject.tag == "ocean")//바다와 충돌시 사망.
+        {
+            transform.position = new Vector3(3, 10, -116);
+
+        }
     }
 }
