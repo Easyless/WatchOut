@@ -5,6 +5,7 @@ using UnityEngine;
 public class moveObject : MonoBehaviour
 {
 	public bool direction = false;
+	public bool directionleft = false;
 	public float moveLimit = 5.0f;
 	public float moveSpeed = 3.0f;
 	private float random;
@@ -19,52 +20,62 @@ public class moveObject : MonoBehaviour
 		if (direction)
 			transform.position += Vector3.right * random;
 		else
-			transform.position += Vector3.forward * random;
+			transform.position += Vector3.left * random;
+
 	}
 
 	void Update()
 	{
-		if (direction)
 		{
-			if (moveBack)
+			if (direction)
 			{
-				if (transform.position.x < position.x + moveLimit)
+				if (moveBack)
 				{
-					transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+					if (transform.position.x < position.x + moveLimit)
+					{
+						transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+					}
+					else
+						moveBack = false;
 				}
 				else
-					moveBack = false;
+				{
+					if (transform.position.x > position.x)
+					{
+						transform.position -= Vector3.right * Time.deltaTime * moveSpeed;
+					}
+					else
+						moveBack = true;
+				}
 			}
+
 			else
 			{
-				if (transform.position.x > position.x)
+
+				if (moveBack)
 				{
-					transform.position -= Vector3.right * Time.deltaTime * moveSpeed;
+					if (transform.position.x > position.x)
+					{
+						transform.position -= Vector3.right * Time.deltaTime * moveSpeed;
+					}
+					else
+						moveBack = false;
 				}
 				else
-					moveBack = true;
+				{
+					if (transform.position.x < position.x + moveLimit)
+					{
+						transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+					}
+					else
+						moveBack = true;
+				}
 			}
 		}
-		else
-		{
-			if (moveBack)
-			{
-				if (transform.position.z < position.z + moveLimit)
-				{
-					transform.position += Vector3.forward * Time.deltaTime * moveSpeed;
-				}
-				else
-					moveBack = false;
-			}
-			else
-			{
-				if (transform.position.z > position.z)
-				{
-					transform.position -= Vector3.forward * Time.deltaTime * moveSpeed;
-				}
-				else
-					moveBack = true;
-			}
-		}
+
+
+
 	}
+
+
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class dropSphere : MonoBehaviour
 {
     public GameObject rollcyllinder;
-   // float time = 0f;
+    public GameObject roliingrock;
+    // float time = 0f;
     void Start()
     {
         StartCoroutine(test());
@@ -41,11 +42,26 @@ public class dropSphere : MonoBehaviour
        
     }
 
+    public void Makerock()
+    {
+
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
+        Instantiate(roliingrock, new Vector3(-3, 75, 90), rotation);//떨어지는돌1 생성
+        Instantiate(roliingrock, new Vector3(3, 75, 90), rotation);//떨어지는돌2 생성
+        Instantiate(roliingrock, new Vector3(9, 75, 90), rotation);//떨어지는돌3 생성
+
+
+    }
+
     public void Makecyllinderrepeat()//파이프 생성 3초마다 반복
     {
         InvokeRepeating("Makecyllinder", 1,3);
       
     }
 
+    public void Makerockrepeat()//떨어지는돌 생성 3초마다 반복
+    {
+        InvokeRepeating("Makerock", 1, 3);
 
+    }
 }

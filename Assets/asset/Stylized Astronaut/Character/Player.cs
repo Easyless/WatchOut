@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 
     private GameObject firstobstaclepoint;//미션1지점 오라 삭제용
     private GameObject secondobstaclepoint;//미션2지점 오라 삭제용
-
+    private GameObject thirdobstaclepoint;//미션2지점 오라 삭제용
     //----------------------------------------------------------------------
 
 
@@ -129,7 +129,16 @@ public class Player : MonoBehaviour {
            GameObject.Find("Enemy3").GetComponent<enemy>().enabled = true;
         }
 
+        if (collision.gameObject.tag == "obstacle3")//장애물포인트3도달시 삭제 및 장애물발동
+        {
 
+
+            thirdobstaclepoint = GameObject.FindGameObjectWithTag("obstacle3");//미션포인트3 오라 받아오기
+            Destroy(thirdobstaclepoint);//삭제
+
+            GameObject.Find("Cyllinderpoint").GetComponent<dropSphere>().Makerockrepeat();//dropspher 내의 파이프생성 함수 가져오기
+
+        }
 
 
         if (collision.gameObject.tag == "rock")//바위와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
@@ -151,12 +160,12 @@ public class Player : MonoBehaviour {
 
         if (collision.gameObject.tag == "portal1")//파란포탈  = 정답
         {
-            transform.position = new Vector3(3, 65, 71.5);
+            transform.position = new Vector3(3, 55, 71);
 
         }
 
 
-        if (collision.gameObject.tag == "portal2")//초록포탈 = 초록돌 앞에서 재시가
+        if (collision.gameObject.tag == "portal2")//초록포탈 = 초록돌 앞에서 재시작
         {
             transform.position = new Vector3(3, 35, -25);
 
