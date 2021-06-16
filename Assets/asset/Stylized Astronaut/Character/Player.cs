@@ -41,6 +41,11 @@ public class Player : MonoBehaviour {
         Turn();
         Jump();
         Dodge();
+
+        if(transform.position.y < -5)
+        {
+            transform.position = new Vector3(3, 10, -116);
+        }
     }
 
     void GetInput()

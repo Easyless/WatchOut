@@ -36,7 +36,7 @@ public class dropSphere : MonoBehaviour
           
         Quaternion rotation = Quaternion.Euler(0, 0, 0);
         Instantiate(rollcyllinder,new Vector3(-3,25,-30) ,rotation);//파이프1 생성
-        Instantiate(rollcyllinder, new Vector3(9, 25, -30), rotation);//파이프2 생성
+        Instantiate(rollcyllinder, new Vector3(10, 25, -30), rotation);//파이프2 생성
        // Instantiate(rollcyllinder, new Vector3(-2, 25, -31), rotation);//파이프3 생성
        // Instantiate(rollcyllinder, new Vector3(9, 25, -27), rotation);//파이프4 생성
        
