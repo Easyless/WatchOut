@@ -17,6 +17,8 @@ TagManager:
   - ocean
   - tire
   - rollingrock
+  - obstacle4
+  - rocket
   layers:
   - Default
   - TransparentFX

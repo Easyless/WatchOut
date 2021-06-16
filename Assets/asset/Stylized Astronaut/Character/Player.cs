@@ -12,12 +12,14 @@ public class Player : MonoBehaviour {
     bool jumping;//점프중일때
     bool dodging;//점프중일때
 
+    AudioSource audioSource;
 
     //게임도중 생성되는 장애물들의 생성을 도울 보이지않는 포인트
 
     private GameObject firstobstaclepoint;//미션1지점 오라 삭제용
     private GameObject secondobstaclepoint;//미션2지점 오라 삭제용
-    private GameObject thirdobstaclepoint;//미션2지점 오라 삭제용
+    private GameObject thirdobstaclepoint;//미션3지점 오라 삭제용
+    private GameObject fourthobstaclepoint;//미션4지점 오라 삭제용
     //----------------------------------------------------------------------
 
 
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour {
     {
         rigid = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
+
+        this.audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -42,10 +46,12 @@ public class Player : MonoBehaviour {
         Jump();
         Dodge();
 
-        if(transform.position.y < -5)
+        if(transform.position.y < -5) //추락시 초기위치에서 리스폰
         {
             transform.position = new Vector3(3, 10, -116);
         }
+
+
     }
 
     void GetInput()
@@ -75,10 +81,12 @@ public class Player : MonoBehaviour {
     {
         if(jdown && !jumping && !dodging)//무한점프방지
         {
+            
             rigid.AddForce(Vector3.up * jumpheigt, ForceMode.Impulse);
             anim.SetBool("isjump",true);//가만히있지 않을시 뛰는 애니메이션
             anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
             jumping = true;
+            audioSource.Play();
         }
         
     }
@@ -145,15 +153,15 @@ public class Player : MonoBehaviour {
 
         }
 
+ 
+
 
         if (collision.gameObject.tag == "rock")//바위와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
         {
 
             rigid.AddForce(Vector3.back * 4, ForceMode.VelocityChange);
             rigid.AddForce(Vector3.up * 2, ForceMode.Impulse);
-           // anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
-           // anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
-            //jumping = true;
+           
         }
 
 
@@ -184,32 +192,27 @@ public class Player : MonoBehaviour {
 
         }
 
-        if (collision.gameObject.tag == "rollingrock")//타이어와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
+        if (collision.gameObject.tag == "rollingrock")//굴러떨어지는돌과 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
         {
 
             rigid.AddForce(Vector3.back * 11, ForceMode.VelocityChange);
             rigid.AddForce(Vector3.up * 4, ForceMode.Impulse);
-            //anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
-            //anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
-            //jumping = true;
+           
         }
 
 
-        if (collision.gameObject.tag == "tire")//타이어와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
+        if (collision.gameObject.tag == "tire")//위아래로 움직이는돌과 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
         {
 
             rigid.AddForce(Vector3.back * 10, ForceMode.VelocityChange);
             rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
-            //anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
-            //anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
-            //jumping = true;
+         
         }
 
-
-        if (collision.gameObject.tag == "ocean")//바다와 충돌시 사망.
+        if (collision.gameObject.tag == "rocket")//위아래로 움직이는돌과 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
         {
-            transform.position = new Vector3(3, 10, -116);
-
+            GameObject.Find("clearsound").GetComponent<AudioSource>().Play();//dropspher 내의 파이프생성 함수 가져오기
         }
+
     }
 }
