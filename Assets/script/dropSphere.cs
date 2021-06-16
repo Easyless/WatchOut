@@ -46,10 +46,10 @@ public class dropSphere : MonoBehaviour
     {
 
         Quaternion rotation = Quaternion.Euler(0, 0, 0);
-        Instantiate(roliingrock, new Vector3(-3, 75, 125), rotation);//떨어지는돌1 생성
-        Instantiate(roliingrock, new Vector3(3, 85, 105), rotation);//떨어지는돌2 생성
-        Instantiate(roliingrock, new Vector3(13, 75, 130), rotation);//떨어지는돌3 생성
-        Instantiate(roliingrock, new Vector3(3, 75, 130), rotation);//떨어지는돌4 생성
+        Instantiate(roliingrock, new Vector3(-3, 90, 125), rotation);//떨어지는돌1 생성
+        Instantiate(roliingrock, new Vector3(3, 90, 105), rotation);//떨어지는돌2 생성
+        Instantiate(roliingrock, new Vector3(13, 90, 130), rotation);//떨어지는돌3 생성
+        Instantiate(roliingrock, new Vector3(3, 90, 130), rotation);//떨어지는돌4 생성
 
 
     }

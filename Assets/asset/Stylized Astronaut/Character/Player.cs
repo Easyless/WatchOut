@@ -145,9 +145,10 @@ public class Player : MonoBehaviour {
         {
 
             rigid.AddForce(Vector3.back * 4, ForceMode.VelocityChange);
-            anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
-            anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
-            jumping = true;
+            rigid.AddForce(Vector3.up * 2, ForceMode.Impulse);
+           // anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
+           // anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
+            //jumping = true;
         }
 
 
@@ -178,6 +179,26 @@ public class Player : MonoBehaviour {
 
         }
 
+        if (collision.gameObject.tag == "rollingrock")//타이어와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
+        {
+
+            rigid.AddForce(Vector3.back * 11, ForceMode.VelocityChange);
+            rigid.AddForce(Vector3.up * 4, ForceMode.Impulse);
+            //anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
+            //anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
+            //jumping = true;
+        }
+
+
+        if (collision.gameObject.tag == "tire")//타이어와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
+        {
+
+            rigid.AddForce(Vector3.back * 10, ForceMode.VelocityChange);
+            rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            //anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
+            //anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
+            //jumping = true;
+        }
 
 
         if (collision.gameObject.tag == "ocean")//바다와 충돌시 사망.
