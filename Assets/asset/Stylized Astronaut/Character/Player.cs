@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -13,6 +14,9 @@ public class Player : MonoBehaviour {
     bool dodging;//점프중일때
 
     AudioSource audioSource;
+
+    public Text missiontext;
+    public Text cleartext;
 
     //게임도중 생성되는 장애물들의 생성을 도울 보이지않는 포인트
 
@@ -46,11 +50,21 @@ public class Player : MonoBehaviour {
         Jump();
         Dodge();
 
-        if(transform.position.y < -5) //추락시 초기위치에서 리스폰
+        if(transform.position.y < -10) //추락시 초기위치에서 리스폰
         {
             transform.position = new Vector3(3, 10, -116);
         }
 
+        if(transform.position.z>-29 && transform.position.z<-22)
+        {
+            missiontext.gameObject.SetActive(true);
+            missiontext.text = "개수가 가장 적은 바위를 찾으시오";
+        }
+      
+        else
+        {
+            missiontext.gameObject.SetActive(false);
+        }
 
     }
 
@@ -209,9 +223,11 @@ public class Player : MonoBehaviour {
          
         }
 
-        if (collision.gameObject.tag == "rocket")//위아래로 움직이는돌과 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
+        if (collision.gameObject.tag == "rocket")//로켓 충돌시 게임클리어
         {
-            GameObject.Find("clearsound").GetComponent<AudioSource>().Play();//dropspher 내의 파이프생성 함수 가져오기
+            GameObject.Find("clearsound").GetComponent<AudioSource>().Play();
+            cleartext.gameObject.SetActive(true);
+            cleartext.text = "미션 성공";
         }
 
     }
