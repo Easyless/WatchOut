@@ -10,7 +10,7 @@ public class time : MonoBehaviour
     public Text gameover;
     public Text gamestart;
 
-    private float GameTime = 0;
+    private float GameTime = 58;
 
     private float StartTime = 0;
     private float min = 0;
@@ -33,13 +33,14 @@ public class time : MonoBehaviour
         StartTime += Time.deltaTime;
 
 
+        GameTime += Time.deltaTime;
+         
         if (start == true)
         {
-            GameTime += Time.deltaTime;
 
-            if ((int)GameTime == 60)
+            if (GameTime > 60)
             {
-                GameTime = 0;
+                GameTime = (GameTime-60);
                 min += 1;
                 GameTime += Time.deltaTime;
 
@@ -56,7 +57,7 @@ public class time : MonoBehaviour
 
         }
 
-        if((int)min == 3 && (int)GameTime == 3)
+        if((int)min == 4 && (int)GameTime == 3)
         {
             SceneManager.LoadScene("Menu 3D");
         }
@@ -91,12 +92,12 @@ public class time : MonoBehaviour
             GameTime -= 20;
         }
 
-        if(GameTime < 20)
+        else if(GameTime < 20 && min == 0)
         {
             GameTime = 0;
         }
 
-        if(GameTime<20 && min >= 1)
+        else if(GameTime<20 && min >= 1)
         {
             min -= 1;
 
