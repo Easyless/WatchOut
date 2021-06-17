@@ -61,7 +61,7 @@ public class time : MonoBehaviour
             SceneManager.LoadScene("Menu 3D");
         }
 
-        if ((int)min == 3 && (int)GameTime == 0)
+        if ((int)min == 4 && (int)GameTime == 0)
         {
             gameover.text = "미션 실패";
             gameover.gameObject.SetActive(true);
@@ -70,7 +70,7 @@ public class time : MonoBehaviour
 
         if ((int)StartTime == 0)
         {
-            gamestart.text = "미션 시작";
+            gamestart.text = "우주선까지 무사히 귀환하라";
             gamestart.gameObject.SetActive(true);
 
             }

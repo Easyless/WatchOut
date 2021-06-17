@@ -12,7 +12,7 @@ public class runningmapplayer : MonoBehaviour
     public float jumpheigt = 3;//속도
     bool jdown;//점프
     bool ddown;//회피
-    bool demokey;//데모용 순간이동
+
     bool jumping;//점프중일때
     bool dodging;//점프중일때
 
@@ -60,7 +60,7 @@ public class runningmapplayer : MonoBehaviour
         Turn();
         Jump();
         Dodge();
-        demo();
+      
 
         if (transform.position.y < -20) //추락시 초기위치에서 리스폰
         {
@@ -71,11 +71,61 @@ public class runningmapplayer : MonoBehaviour
         if (isEnd)
         {
             endTimer += Time.deltaTime;
-            if (endTimer > .0f)
+            if (endTimer > 3.0f)
             {
                 SceneManager.LoadScene("Menu 3D");
             }
         }
+
+
+        //데모용 순간이동
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            KeyDown_1();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            KeyDown_2();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            KeyDown_3();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            KeyDown_4();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            KeyDown_5();
+        }
+    }
+
+    //데모용 순간이동
+    private void KeyDown_1()
+    {
+        transform.position = new Vector3(30, 0, -6);
+    }
+    private void KeyDown_2()
+    {
+        transform.position = new Vector3(30, 0, 81);
+    }
+    private void KeyDown_3()
+    {
+        transform.position = new Vector3(18, 0, 184);
+    }
+    private void KeyDown_4()
+    {
+        transform.position = new Vector3(18, 0, 358);
+    }
+
+    private void KeyDown_5()
+    {
+        transform.position = new Vector3(18, 0, 461);
     }
 
     void GetInput()
@@ -85,17 +135,11 @@ public class runningmapplayer : MonoBehaviour
         ver = Input.GetAxisRaw("Vertical");
         jdown = Input.GetButtonDown("Jump");//스페이스바
         ddown = Input.GetButtonDown("Fire1");//왼쪽 시프트
-        demokey = Input.GetButtonDown("Fire2");//왼쪽 시프트
+       
     }
 
 
-    void demo()
-    {
-        if (demokey)
-        {
-            transform.position = new Vector3(3, 85, 145);
-        }
-    }
+
     void Move()
     {
         moveVec = new Vector3(hor, 0, ver).normalized; //방향값 1로보정

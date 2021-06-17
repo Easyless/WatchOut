@@ -11,7 +11,7 @@ public class Player : MonoBehaviour {
     public float jumpheigt=3;//속도
     bool jdown;//점프
     bool ddown;//회피
-    bool demokey;//데모용 순간이동
+
     bool jumping;//점프중일때
     bool dodging;//점프중일때
 
@@ -35,7 +35,6 @@ public class Player : MonoBehaviour {
     private GameObject shoes;//시계 아이템삭제
 
 
-    public GameObject rotatering;
 
     //----------------------------------------------------------------------
 
@@ -56,7 +55,7 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
-        transform.LookAt(rotatering.transform);
+       
 
 
         GetInput();
@@ -64,7 +63,7 @@ public class Player : MonoBehaviour {
         Turn();
         Jump();
         Dodge();
-        demo();
+      
 
         if(transform.position.y < -10) //추락시 초기위치에서 리스폰
         {
@@ -90,7 +89,57 @@ public class Player : MonoBehaviour {
                 SceneManager.LoadScene("Menu 3D");
             }
         }
+
+
+        //데모용 순간이동
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            KeyDown_1();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            KeyDown_2();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            KeyDown_3();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            KeyDown_4();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            KeyDown_5();
+        }
     }
+
+    private void KeyDown_1()
+    {
+        transform.position = new Vector3(3, 3, -65);
+    }
+    private void KeyDown_2()
+    {
+        transform.position = new Vector3(3, 50, 31);
+    }
+    private void KeyDown_3()
+    {
+        transform.position = new Vector3(3, 47, 75);
+    }
+    private void KeyDown_4()
+    {
+        transform.position = new Vector3(3, 83, 145);
+    }
+
+    private void KeyDown_5()
+    {
+        transform.position = new Vector3(3, 97, 218);
+    }
+
 
     void GetInput()
     {
@@ -99,17 +148,11 @@ public class Player : MonoBehaviour {
         ver = Input.GetAxisRaw("Vertical");
         jdown = Input.GetButtonDown("Jump");//스페이스바
         ddown = Input.GetButtonDown("Fire1");//왼쪽 시프트
-        demokey = Input.GetButtonDown("Fire2");//왼쪽 시프트
+     
     }
 
 
-    void demo()
-    {
-        if(demokey)
-        {
-            transform.position = new Vector3(3, 85, 145);
-        }
-    }
+ 
     void Move()
     {
         moveVec = new Vector3(hor, 0, ver).normalized; //방향값 1로보정
