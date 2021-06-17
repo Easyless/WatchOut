@@ -24,6 +24,7 @@ public class Player : MonoBehaviour {
 
     public Text missiontext;
     public Text cleartext;
+    public ParticleSystem particle;
 
     //게임도중 생성되는 장애물들의 생성을 도울 보이지않는 포인트
 
@@ -191,6 +192,11 @@ public class Player : MonoBehaviour {
             speed *= 2.0f;
             dodging = true;
             dashcount += 1;
+            ParticleSystem parts = Instantiate(particle);
+            parts.transform.position = transform.position + new Vector3(0f, 1.3f, 0f);
+            parts.transform.rotation = transform.rotation;
+            parts.transform.Rotate(new Vector3(0f, 1f, 0f), 180f);
+            //particle.Emit(30);
             Invoke("DodgeOut",1.0f); //시간차두고 회피그만하기
         }
     }
