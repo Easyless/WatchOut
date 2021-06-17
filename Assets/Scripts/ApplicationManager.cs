@@ -13,6 +13,10 @@ public class ApplicationManager : MonoBehaviour {
 		Application.Quit();
 		#endif
 	}
+	public void Scene0()
+	{
+		SceneManager.LoadScene("Menu 3D");
+	}
 	public void Scene1()
     {
 		SceneManager.LoadScene("climbing");
@@ -22,4 +26,15 @@ public class ApplicationManager : MonoBehaviour {
 	{
 		SceneManager.LoadScene("running");
 	}
+
+	public void Scene3()
+	{
+		SceneManager.LoadScene("Manual");
+	}
+
+	public void Scene4()
+	{
+		SceneManager.LoadScene("Manual2");
+	}
+
 }

@@ -314,12 +314,12 @@ public class runningmapplayer : MonoBehaviour
             Destroy(teleport);//ªË¡¶
 
 
-            int randomX = Random.Range(-3, 8);
-            int randomZ = Random.Range(-100, 180);
+            int randomX = Random.Range(18, 19);
+            int randomZ = Random.Range(-40, 460);
 
             GameObject.Find("teleportsound").GetComponent<AudioSource>().Play();
 
-            transform.position = new Vector3(randomX, 80, randomZ);
+            transform.position = new Vector3(randomX, 0, randomZ);
         }
     }
 }
