@@ -48766,6 +48766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   jumpheigt: 12
+  particle: {fileID: 2442540082952505551, guid: df676a509030eff478df2259d3d6cb2e, type: 3}
   cleartext: {fileID: 1804720344}
 --- !u!4 &1484851687 stripped
 Transform:

@@ -20,7 +20,7 @@ public class runningmapplayer : MonoBehaviour
     float endTimer = 0;
 
     int dashcount = 0;
-
+    public ParticleSystem particle;
     AudioSource audioSource;
 
  
@@ -179,6 +179,10 @@ public class runningmapplayer : MonoBehaviour
             speed *= 2.0f;
             dodging = true;
             dashcount += 1;
+            ParticleSystem parts = Instantiate(particle);
+            parts.transform.position = transform.position + new Vector3(0f, 1.3f, 0f);
+            parts.transform.rotation = transform.rotation;
+            parts.transform.Rotate(new Vector3(0f, 1f, 0f), 180f);
             Invoke("DodgeOut", 1.0f); 
         }
     }

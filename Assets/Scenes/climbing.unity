@@ -16909,6 +16909,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114551384804589004, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 2442540082952505551, guid: df676a509030eff478df2259d3d6cb2e, type: 3}
+    - target: {fileID: 114551384804589004, guid: 2abf19653d633114faedf3b60dc6c39f, type: 3}
       propertyPath: cleartext
       value: 
       objectReference: {fileID: 1078858013}
