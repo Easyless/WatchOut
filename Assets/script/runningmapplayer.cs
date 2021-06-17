@@ -60,9 +60,9 @@ public class runningmapplayer : MonoBehaviour
         Dodge();
         demo();
 
-        if (transform.position.y < -10) //추락시 초기위치에서 리스폰
+        if (transform.position.y < -20) //추락시 초기위치에서 리스폰
         {
-            transform.position = new Vector3(30, 0, -70);
+            transform.position = new Vector3(30, 0, -45);
         }
 
 

@@ -217,21 +217,21 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "portal1")//파란포탈  = 정답
         {
             transform.position = new Vector3(3, 55, 71);
-
+            GameObject.Find("portal").GetComponent<AudioSource>().Play();
         }
 
 
         if (collision.gameObject.tag == "portal2")//초록포탈 = 초록돌 앞에서 재시작
         {
             transform.position = new Vector3(3, 35, -25);
-
+            GameObject.Find("portal2").GetComponent<AudioSource>().Play();
         }
 
 
         if (collision.gameObject.tag == "portal3")//빨간포탈 = 빨간돌 앞에서 재시작
         {
             transform.position = new Vector3(-2, 35, -25);
-
+            GameObject.Find("portal3").GetComponent<AudioSource>().Play();
         }
 
         if (collision.gameObject.tag == "rollingrock")//굴러떨어지는돌과 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
