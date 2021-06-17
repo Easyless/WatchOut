@@ -33,8 +33,9 @@ public class runningmapplayer : MonoBehaviour
     private GameObject clockitem;//시계 아이템삭제
     private GameObject teleport;//시계 아이템삭제
     private GameObject shoes;//시계 아이템삭제
-    //----------------------------------------------------------------------
+                             //----------------------------------------------------------------------
 
+ 
 
     Vector3 moveVec;
 
@@ -52,7 +53,8 @@ public class runningmapplayer : MonoBehaviour
 
     void Update()
     {
-
+       // transform.LookAt(rotatering.transform);
+      
         GetInput();
         Move();
         Turn();
@@ -229,7 +231,8 @@ public class runningmapplayer : MonoBehaviour
 
             rigid.AddForce(Vector3.back * 11, ForceMode.VelocityChange);
             rigid.AddForce(Vector3.up * 4, ForceMode.Impulse);
-
+            
+            
         }
 
 

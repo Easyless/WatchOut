@@ -33,6 +33,10 @@ public class Player : MonoBehaviour {
     private GameObject clockitem;//시계 아이템삭제
     private GameObject teleport;//시계 아이템삭제
     private GameObject shoes;//시계 아이템삭제
+
+
+    public GameObject rotatering;
+
     //----------------------------------------------------------------------
 
 
@@ -52,6 +56,8 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
+        transform.LookAt(rotatering.transform);
+
 
         GetInput();
         Move();
