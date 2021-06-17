@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour {
+public class runningmapplayer : MonoBehaviour
+{
 
-	float hor; //수평
-	float ver; //수직
+    float hor; //수평
+    float ver; //수직
     public float speed;//속도
-    public float jumpheigt=3;//속도
+    public float jumpheigt = 3;//속도
     bool jdown;//점프
     bool ddown;//회피
     bool demokey;//데모용 순간이동
@@ -20,9 +21,8 @@ public class Player : MonoBehaviour {
 
     AudioSource audioSource;
 
-    public Text missiontext;
+ 
     public Text cleartext;
-
     //게임도중 생성되는 장애물들의 생성을 도울 보이지않는 포인트
 
     private GameObject firstobstaclepoint;//미션1지점 오라 삭제용
@@ -60,26 +60,16 @@ public class Player : MonoBehaviour {
         Dodge();
         demo();
 
-        if(transform.position.y < -10) //추락시 초기위치에서 리스폰
+        if (transform.position.y < -10) //추락시 초기위치에서 리스폰
         {
-            transform.position = new Vector3(3, 10, -116);
+            transform.position = new Vector3(30, 0, -70);
         }
 
-        if (transform.position.z > -29 && transform.position.z < -22 && transform.position.y < 30) 
-        {
-            missiontext.gameObject.SetActive(true);
-            missiontext.text = "개수가 가장 적은 바위를 찾으시오";
-        }
-      
-        else
-        {
-            missiontext.gameObject.SetActive(false);
-        }
 
         if (isEnd)
         {
             endTimer += Time.deltaTime;
-            if (endTimer > 3.0f)
+            if (endTimer > .0f)
             {
                 SceneManager.LoadScene("Menu 3D");
             }
@@ -99,7 +89,7 @@ public class Player : MonoBehaviour {
 
     void demo()
     {
-        if(demokey)
+        if (demokey)
         {
             transform.position = new Vector3(3, 85, 145);
         }
@@ -120,38 +110,38 @@ public class Player : MonoBehaviour {
 
     void Jump()
     {
-        if(jdown && !jumping && !dodging)//무한점프방지
+        if (jdown && !jumping && !dodging)//무한점프방지
         {
-            
+
             rigid.AddForce(Vector3.up * jumpheigt, ForceMode.Impulse);
-            anim.SetBool("isjump",true);//가만히있지 않을시 뛰는 애니메이션
+            anim.SetBool("isjump", true);//가만히있지 않을시 뛰는 애니메이션
             anim.SetTrigger("dojump");//가만히있지 않을시 뛰는 애니메이션
             jumping = true;
             audioSource.Play();
         }
-        
+
     }
 
 
     void Dodge()//회피
     {
-        if (ddown &&!dodging && !jumping)
+        if (ddown && !dodging && !jumping)
         {
             speed *= 2;
-         
+
             anim.SetTrigger("dododge");//회피 애니메이션
             dodging = true;
 
-            Invoke("DodgeOut",0.4f); //시간차두고 회피그만하기
+            Invoke("DodgeOut", 0.4f); //시간차두고 회피그만하기
         }
     }
 
     void DodgeOut()
     {
         speed *= 0.5f;
-        dodging = false; 
+        dodging = false;
         anim.SetBool("isjump", false);
-      
+
     }
 
     void OnCollisionEnter(Collision collision)//바닥에 닿았을시
@@ -159,8 +149,8 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "ground")//ground태그값 바닥에 있을시 점프한번만
         {
             anim.SetBool("isjump", false);
-          
-        
+
+
             jumping = false;
         }
 
@@ -172,7 +162,7 @@ public class Player : MonoBehaviour {
             Destroy(firstobstaclepoint);//삭제
 
             GameObject.Find("Cyllinderpoint").GetComponent<dropSphere>().Makecyllinderrepeat();//dropspher 내의 파이프생성 함수 가져오기
-         
+
         }
 
         if (collision.gameObject.tag == "obstacle2")//장애물포인트2도달시 몬스터 움직이기시작
@@ -181,7 +171,7 @@ public class Player : MonoBehaviour {
             Destroy(secondobstaclepoint);//삭제
 
             GameObject.Find("Enemy2").GetComponent<enemy>().enabled = true;//몬스터 동작 시작
-           GameObject.Find("Enemy3").GetComponent<enemy>().enabled = true;
+            GameObject.Find("Enemy3").GetComponent<enemy>().enabled = true;
         }
 
         if (collision.gameObject.tag == "obstacle3")//장애물포인트3도달시 삭제 및 장애물발동
@@ -195,7 +185,7 @@ public class Player : MonoBehaviour {
 
         }
 
- 
+
 
 
         if (collision.gameObject.tag == "rock")//바위와 충돌시 뒤로 튕기고 중력의 영향으로 잠시동안 속도가 느려진다.
@@ -203,7 +193,7 @@ public class Player : MonoBehaviour {
 
             rigid.AddForce(Vector3.back * 4, ForceMode.VelocityChange);
             rigid.AddForce(Vector3.up * 2, ForceMode.Impulse);
-           
+
         }
 
 
@@ -211,7 +201,7 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "monster")//몬스터와 충돌시 위로 다시 돌아간다
         {
             transform.position = new Vector3(3, 55, 35);
-           
+
         }
 
         if (collision.gameObject.tag == "portal1")//파란포탈  = 정답
@@ -239,7 +229,7 @@ public class Player : MonoBehaviour {
 
             rigid.AddForce(Vector3.back * 11, ForceMode.VelocityChange);
             rigid.AddForce(Vector3.up * 4, ForceMode.Impulse);
-           
+
         }
 
 
@@ -248,7 +238,7 @@ public class Player : MonoBehaviour {
 
             rigid.AddForce(Vector3.back * 10, ForceMode.VelocityChange);
             rigid.AddForce(Vector3.up * 10, ForceMode.Impulse);
-         
+
         }
 
         if (collision.gameObject.tag == "rocket")//로켓 충돌시 게임클리어
@@ -267,22 +257,22 @@ public class Player : MonoBehaviour {
             Destroy(clockitem);//삭제
 
             GameObject.Find("time").GetComponent<time>().clockitem();
-           
+
         }
 
         if (collision.gameObject.tag == "teleportitem")//텔레포트 아이템과 충돌
         {
 
-           teleport= GameObject.FindGameObjectWithTag("teleportitem");
-           Destroy(teleport);//삭제
+            teleport = GameObject.FindGameObjectWithTag("teleportitem");
+            Destroy(teleport);//삭제
 
-          
+
             int randomX = Random.Range(-3, 8);
             int randomZ = Random.Range(-100, 180);
 
             GameObject.Find("teleportsound").GetComponent<AudioSource>().Play();
 
-           transform.position = new Vector3(randomX, 80, randomZ);
+            transform.position = new Vector3(randomX, 80, randomZ);
         }
     }
 }
