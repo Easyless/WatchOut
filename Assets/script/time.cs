@@ -14,16 +14,20 @@ public class time : MonoBehaviour
 
     private float StartTime = 0;
     private float min = 0;
-
+    AudioSource audioSource;
     bool start = false;
+
+    int total = 0;
 
     void Start()
     {
 
-   // missiontext.gameObject.SetActive(false);
-
     }
+    void Awake()
+    {
 
+        this.audioSource = GetComponent<AudioSource>();
+    }
     void Update()
     {
         StartTime += Time.deltaTime;
@@ -78,4 +82,29 @@ public class time : MonoBehaviour
             start = true;
         }
     }
+
+
+    public void clockitem()
+    {
+        if (GameTime > 20)
+        {
+            GameTime -= 20;
+        }
+
+        if(GameTime < 20)
+        {
+            GameTime = 0;
+        }
+
+        if(GameTime<20 && min >= 1)
+        {
+            min -= 1;
+
+            GameTime = (GameTime + 60) - 20;
+
+        }
+
+        audioSource.Play();
+    }
+
 }

@@ -65,7 +65,7 @@ public class dropSphere : MonoBehaviour
        
     }
 
-    public void Makerockrepeat()//떨어지는돌 생성 4초마다 반복
+    public void Makerockrepeat()//떨어지는돌 생성 3초마다 반복
     {
         InvokeRepeating("Makerock", 1, 3);
        

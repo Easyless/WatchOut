@@ -28,6 +28,10 @@ public class Player : MonoBehaviour {
     private GameObject secondobstaclepoint;//미션2지점 오라 삭제용
     private GameObject thirdobstaclepoint;//미션3지점 오라 삭제용
     private GameObject fourthobstaclepoint;//미션4지점 오라 삭제용
+
+    private GameObject clockitem;//시계 아이템삭제
+    private GameObject teleport;//시계 아이템삭제
+    private GameObject shoes;//시계 아이템삭제
     //----------------------------------------------------------------------
 
 
@@ -59,7 +63,7 @@ public class Player : MonoBehaviour {
             transform.position = new Vector3(3, 10, -116);
         }
 
-        if(transform.position.z>-29 && transform.position.z<-22)
+        if (transform.position.z > -29 && transform.position.z < -22 && transform.position.y < 30) 
         {
             missiontext.gameObject.SetActive(true);
             missiontext.text = "개수가 가장 적은 바위를 찾으시오";
@@ -243,5 +247,30 @@ public class Player : MonoBehaviour {
             isEnd = true;
         }
 
+
+        if (collision.gameObject.tag == "clockitem")//시계 아이템과 충돌
+        {
+
+            clockitem = GameObject.FindGameObjectWithTag("clockitem");
+            Destroy(clockitem);//삭제
+
+            GameObject.Find("time").GetComponent<time>().clockitem();
+           
+        }
+
+        if (collision.gameObject.tag == "teleportitem")//텔레포트 아이템과 충돌
+        {
+
+           teleport= GameObject.FindGameObjectWithTag("teleportitem");
+           Destroy(teleport);//삭제
+
+          
+            int randomX = Random.Range(-3, 8);
+            int randomZ = Random.Range(-100, 180);
+
+            GameObject.Find("teleportsound").GetComponent<AudioSource>().Play();
+
+           transform.position = new Vector3(randomX, 80, randomZ);
+        }
     }
 }

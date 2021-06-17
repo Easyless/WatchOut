@@ -19,6 +19,8 @@ TagManager:
   - rollingrock
   - obstacle4
   - rocket
+  - clockitem
+  - teleportitem
   layers:
   - Default
   - TransparentFX
