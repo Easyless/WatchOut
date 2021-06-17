@@ -19,6 +19,8 @@ public class runningmapplayer : MonoBehaviour
     bool isEnd = false;
     float endTimer = 0;
 
+    int dashcount = 0;
+
     AudioSource audioSource;
 
  
@@ -145,6 +147,7 @@ public class runningmapplayer : MonoBehaviour
         moveVec = new Vector3(hor, 0, ver).normalized; //방향값 1로보정
 
         transform.position += moveVec * speed * Time.deltaTime;
+        
 
         anim.SetBool("run", moveVec != Vector3.zero);//가만히있지 않을시 뛰는 애니메이션
     }
@@ -169,25 +172,22 @@ public class runningmapplayer : MonoBehaviour
     }
 
 
-    void Dodge()//회피
+    void Dodge()
     {
-        if (ddown && !dodging && !jumping)
+        if (ddown && !dodging && !jumping && dashcount < 3)
         {
-            speed *= 2;
-
-            anim.SetTrigger("dododge");//회피 애니메이션
+            speed *= 2.0f;
             dodging = true;
-
-            Invoke("DodgeOut", 0.4f); //시간차두고 회피그만하기
+            dashcount += 1;
+            Invoke("DodgeOut", 1.0f); 
         }
     }
 
     void DodgeOut()
     {
-        speed *= 0.5f;
+        speed /= 2.0f;
         dodging = false;
         anim.SetBool("isjump", false);
-
     }
 
     void OnCollisionEnter(Collision collision)//바닥에 닿았을시

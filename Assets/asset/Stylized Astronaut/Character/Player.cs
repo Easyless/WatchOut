@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
     bool isEnd = false;
     float endTimer = 0;
 
+    int dashcount = 0;
+
     AudioSource audioSource;
 
     public Text missiontext;
@@ -184,23 +186,20 @@ public class Player : MonoBehaviour {
 
     void Dodge()//회피
     {
-        if (ddown &&!dodging && !jumping)
+        if (ddown &&!dodging && !jumping && dashcount < 3)
         {
-            speed *= 2;
-         
-            anim.SetTrigger("dododge");//회피 애니메이션
+            speed *= 2.0f;
             dodging = true;
-
-            Invoke("DodgeOut",0.4f); //시간차두고 회피그만하기
+            dashcount += 1;
+            Invoke("DodgeOut",1.0f); //시간차두고 회피그만하기
         }
     }
 
     void DodgeOut()
     {
-        speed *= 0.5f;
+        speed /= 2.0f;
         dodging = false; 
         anim.SetBool("isjump", false);
-      
     }
 
     void OnCollisionEnter(Collision collision)//바닥에 닿았을시
