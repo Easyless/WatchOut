@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -12,6 +13,9 @@ public class Player : MonoBehaviour {
     bool ddown;//회피
     bool jumping;//점프중일때
     bool dodging;//점프중일때
+
+    bool isEnd = false;
+    float endTimer = 0;
 
     AudioSource audioSource;
 
@@ -66,6 +70,14 @@ public class Player : MonoBehaviour {
             missiontext.gameObject.SetActive(false);
         }
 
+        if (isEnd)
+        {
+            endTimer += Time.deltaTime;
+            if (endTimer > 3.0f)
+            {
+                SceneManager.LoadScene("Menu 3D");
+            }
+        }
     }
 
     void GetInput()
@@ -228,6 +240,7 @@ public class Player : MonoBehaviour {
             GameObject.Find("clearsound").GetComponent<AudioSource>().Play();
             cleartext.gameObject.SetActive(true);
             cleartext.text = "미션 성공";
+            isEnd = true;
         }
 
     }

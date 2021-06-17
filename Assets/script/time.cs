@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class time : MonoBehaviour
 {
@@ -49,6 +50,11 @@ public class time : MonoBehaviour
                 missiontext.text = min + " : " + (int)GameTime;
             }
 
+        }
+
+        if((int)min == 3 && (int)GameTime == 3)
+        {
+            SceneManager.LoadScene("Menu 3D");
         }
 
         if ((int)min == 3 && (int)GameTime == 0)

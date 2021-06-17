@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ApplicationManager : MonoBehaviour {
 	
@@ -11,5 +12,14 @@ public class ApplicationManager : MonoBehaviour {
 		#else
 		Application.Quit();
 		#endif
+	}
+	public void Scene1()
+    {
+		SceneManager.LoadScene("climbing");
+	}
+
+	public void Scene2()
+	{
+		SceneManager.LoadScene("running");
 	}
 }
