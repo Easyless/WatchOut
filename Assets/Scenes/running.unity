@@ -11261,7 +11261,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4c647d1fb76df084a87cb66050040bf0, type: 2}
+  - {fileID: 2100000, guid: 206182d338e90fb47af42c620ec448c1, type: 2}
   - {fileID: 2100000, guid: 4c647d1fb76df084a87cb66050040bf0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -50081,7 +50081,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bb361eedc9e759e41af79e9c9e4b27bd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.64
+  m_Volume: 0.428
   m_Pitch: 1
   Loop: 1
   Mute: 0

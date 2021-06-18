@@ -10,7 +10,7 @@ public class time : MonoBehaviour
     public Text gameover;
     public Text gamestart;
 
-    private float GameTime = 58;
+    private float GameTime = 0;
 
     private float StartTime = 0;
     private float min = 0;
@@ -33,10 +33,10 @@ public class time : MonoBehaviour
         StartTime += Time.deltaTime;
 
 
-        GameTime += Time.deltaTime;
          
         if (start == true)
         {
+        GameTime += Time.deltaTime;
 
             if (GameTime > 60)
             {
