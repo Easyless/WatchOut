@@ -37,7 +37,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 dir = new Vector3(xx,yy, -distance);
+        Vector3 dir = new Vector3(0,yy, -distance);
         Quaternion rotation = Quaternion.Euler(currentY, 0, 0);
         
         camTransform.position = lookAt.position + rotation * dir;
